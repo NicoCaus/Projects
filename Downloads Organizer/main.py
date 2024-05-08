@@ -30,28 +30,31 @@ def folder_checker():
     else:
         return True
 
-if folder_checker():
-    # list to store files
-    res = []
-    # Iterate directory
-    for file in os.listdir(dwnlds_path):
-        # check if current path is a file
-        if os.path.isfile(os.path.join(dwnlds_path, file)):
-            res.append(file)
-            if any(file.endswith(ext) for ext in ext_compr):
-                os.replace(f"{dwnlds_path}/{file}", f"{dir_compr}/{file}")
-            elif any(file.endswith(ext) for ext in ext_aud_vid):
-                os.replace(f"{dwnlds_path}/{file}", f"{dir_aud_vid}/{file}")
-            elif any(file.endswith(ext) for ext in ext_img):
-                os.replace(f"{dwnlds_path}/{file}", f"{dir_img}/{file}")
-            elif any(file.endswith(ext) for ext in ext_docs):
-                os.replace(f"{dwnlds_path}/{file}", f"{dir_docs}/{file}")
-            elif any(file.endswith(ext) for ext in ext_exes):
-                os.replace(f"{dwnlds_path}/{file}", f"{dir_exes}/{file}")
-            elif file.endswith(".temp") or file.endswith(".crdownload") or file[0:2] == "~$":
-                pass
-            else:
-                os.replace(f"{dwnlds_path}/{file}", f"{dir_other}/{file}")
+is_on = True
 
-else:
-    print("Selected Folders dont exist")
+#File Sorting Loop
+while is_on:
+    if folder_checker():
+        # list to store files
+        res = []
+        # Iterate directory
+        for file in os.listdir(dwnlds_path):
+            # check if current path is a file
+            if os.path.isfile(os.path.join(dwnlds_path, file)):
+                res.append(file)
+                if any(file.endswith(ext) for ext in ext_compr):
+                    os.replace(f"{dwnlds_path}/{file}", f"{dir_compr}/{file}")
+                elif any(file.endswith(ext) for ext in ext_aud_vid):
+                    os.replace(f"{dwnlds_path}/{file}", f"{dir_aud_vid}/{file}")
+                elif any(file.endswith(ext) for ext in ext_img):
+                    os.replace(f"{dwnlds_path}/{file}", f"{dir_img}/{file}")
+                elif any(file.endswith(ext) for ext in ext_docs):
+                    os.replace(f"{dwnlds_path}/{file}", f"{dir_docs}/{file}")
+                elif any(file.endswith(ext) for ext in ext_exes):
+                    os.replace(f"{dwnlds_path}/{file}", f"{dir_exes}/{file}")
+                elif file.endswith(".temp") or file.endswith(".crdownload") or file[0:2] == "~$":
+                    pass
+                else:
+                    os.replace(f"{dwnlds_path}/{file}", f"{dir_other}/{file}")
+    else:
+        print("Selected Folders dont exist")
