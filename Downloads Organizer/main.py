@@ -3,12 +3,12 @@ from pathlib import Path
 
 # folder path, should config for yourself
 dwnlds_path = "C:/Users/nicoc/Downloads"
-dir_compr = "C:/Users/nicoc/Downloads/Comprimidos"
-dir_aud_vid = "C:/Users/nicoc/Downloads/Audios y Videos"
-dir_img = "C:/Users/nicoc/Downloads/Imagenes"
-dir_docs = "C:/Users/nicoc/Downloads/Documentos"
-dir_exes = "C:/Users/nicoc/Downloads/Ejecutables"
-dir_other = "C:/Users/nicoc/Downloads/Otros"
+dir_compr = f"{dwnlds_path}/Comprimidos"
+dir_aud_vid = f"{dwnlds_path}/Audios y Videos"
+dir_img = f"{dwnlds_path}/Imagenes"
+dir_docs = f"{dwnlds_path}/Documentos"
+dir_exes = f"{dwnlds_path}/Ejecutables"
+dir_other = f"{dwnlds_path}/Otros"
 dir_list = [dwnlds_path,dir_compr, dir_aud_vid, dir_img, dir_docs, dir_exes, dir_other]
 
 #extension lists
@@ -32,7 +32,7 @@ def folder_checker():
 
 is_on = True
 
-#File Sorting Loop
+#File Sorting Loop as
 while is_on:
     if folder_checker():
         # list to store files
