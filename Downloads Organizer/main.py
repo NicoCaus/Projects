@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from pystray import *
 
 # folder path, should config for yourself
 dwnlds_path = "C:/Users/nicoc/Downloads"
